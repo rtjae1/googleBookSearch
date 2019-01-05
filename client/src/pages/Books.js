@@ -14,7 +14,7 @@ class Books extends Component {
     search: ""
   };
 
-  // Searches the GoogleBooks API and stores data in books array
+  // searches the GoogleBooks API storing the data in books array
   searchBooks = query => {
     API.searchBooks(query)
       .then(res =>
@@ -37,23 +37,21 @@ class Books extends Component {
     });
   };
 
-  // When the form is submitted, search the GoogleBooks API for the value of `this.state.search`
+  // once the search term is submitted, search the GoogleBooks API for the value of `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchBooks(this.state.search);
   };
 
-  // Deletes book from database
+  // deletes book from database
   deleteBook = id => {
     API.deleteBook(id)
       .then(res => console.log(res.status))
       .catch(err => console.log(err));
   };
 
-  // Saves book to database
+  // saves book to database
   handleSaveBook = bookData => {
-    // event.preventDefault();
-    // console.log(this.state.books);
     API.saveBook(bookData)
       .then(res => alert("Book Saved!"))
       .catch(err => console.log(err));
@@ -69,7 +67,7 @@ class Books extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card heading="Search Google Books">
+            <Card heading="Google Books Search">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
@@ -81,7 +79,7 @@ class Books extends Component {
         <Row>
           <Col size="md-12">
             {this.state.books.length ? (
-              <Card heading="Search Results">
+              <Card heading="Results">
                 {this.state.books.map(book => (
                   <BookDetail
                     key={book.id}

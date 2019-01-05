@@ -13,19 +13,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Adding routes, both API and view
+// adding routes
 app.use(routes);
 
-// Send every request to the React app
-// Define any API routes before this runs
+// request to the React app
+// define any API routes
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// Connect to the Mongo DB
+//connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
-// Start the API server
+// start the API server
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

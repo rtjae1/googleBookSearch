@@ -11,7 +11,7 @@ class SavedBooks extends Component {
     books: []
   };
 
-  // When this component mounts, grab the books from /api/books
+  // grab the books from /api/books
   componentDidMount() {
     API.getBooks()
       .then(res => this.setState(
@@ -24,7 +24,7 @@ class SavedBooks extends Component {
       .catch(err => console.log(err));
   }
 
-  // Loads all books (called in promise after user deletes book)
+  // loads all books
   loadBooks = () => {
     API.getBooks()
       .then(res =>
@@ -33,7 +33,7 @@ class SavedBooks extends Component {
       .catch(err => console.log(err));
   };
 
-  // Deletes a book by its MongoDB id
+  // deletes a book
   handleDeleteBook = id => {
     API.deleteBook(id)
       .then(res => this.loadBooks())
