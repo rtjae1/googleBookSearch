@@ -1,2 +1,14 @@
-# googleBookSearch
-A React-based Google Books Search app
+# React Google Books Search
+
+
+
+* React
+* MongoDB
+* Mongoose
+* Express
+* Node
+* JavaScript
+* Bootstrap
+* Axios
+
+Email: ryan.t.jae@gmail.com
